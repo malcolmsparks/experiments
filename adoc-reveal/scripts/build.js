@@ -9,7 +9,13 @@ require('asciidoctor-reveal.js');
 function buildOne(file, outputDir) {
   var attributes = {'revealjsdir': 'reveal.js',
                     // Enable history, which is non-default, for during live-reload, so you don't lose your place
-                    'revealjs_history': true};
+                    'revealjs_history': "true",
+		    'revealjs_progress': "false",
+		    'revealjs_customtheme': "/juxt.css",
+		    'revealjs_transition': "none",
+		    'revealjs_controls': "false"
+
+		    };
   var options = {safe: 'safe',
                  backend: 'revealjs',
                  attributes: attributes,
