@@ -1,0 +1,79 @@
+= Fun with JSON
+:classification: PUBLIC
+Malcolm Sparks <mal@juxt.pro>
+
+== Why I now love JSON
+
+=== Literal data
+
+=== Ubiquitous
+
+=== (Almost) Clojure-native
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+== JSON schema
+
+=== Intro to json-schema
+
+=== jinx
+
+== Web APIs
+
+[NOTE]
+--
+Intro to yada (see Slack message in #yada re. article)
+--
+
+=== yada upsides
+
+* Async
+
+* Data model for resources
+
+* Swagger (although stuck on 1.0, latest is 3.0.2)
+
+* Encourages good HTTP citizenship (from Liberator)
+
+=== yada downsides
+
+* Not ring based - and complex (unlike Ring)
+* Hard-wired to aleph
+* Hard to debug - printlns to the rescue
+* Inflexible - hard to extend (somewhat by design, but a real pain when you want to do something simple like add a custom header and you don't know how)
+
+=== 2015-2020
+
+* Swagger marches on - and converging with json-schema - see openapi.tools
+
+* Ring gets async! (read clojure newsgroup thread on this to get context and tell the story)
+
+
+=== What do we need in 2020?
+
+* Clojure needs a simple, easy and boring web framework (see reference to Lispcast guy)
+
+NOTE: We want Clojure to be productive - it's already got a lot of productivity boosts - immutability, data literals, REPL, fast feedback-loops
+
+* But it needs to have a good security story (ref. Bedra's talk)
+
+* Good HTTP citizen - still a good idea -
+
+ ** content negotiation - versioning, hypermedia APIs -> dynamic! long-lived! - but conneg can now be a separately developed library muuntaja
+
+ ** OPTIONS (CORS uses it!)
+
+== Apex
+
+* Built on Ring (sync and async)
+
+* Swagger-first - you build your web APIs first, not generated - (list advantages to this)
+
+* Ring middleware for 'parameters' - pretty much done. Has a comprehensive test suite. Allows all kinds of combinations of query and path parameters - show Swagger parameters table
+
+* Ring middleware for OpenID-Connect Discovery  - pretty much done.
+ ** Random state with good entropy
+ ** JDK Crypto via Nimbus - verification of all JWT sigs - JWKS built in

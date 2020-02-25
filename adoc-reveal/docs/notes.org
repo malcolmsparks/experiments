@@ -1,0 +1,29 @@
+#+TITLE: Fun with JSON
+
+* Submission
+
+Title: Fun with JSON
+
+Abstract: "Wow - how did the world manage to fall in love with the idea of nested maps and lists?
+
+Well, they have, so now it needs a language that can so easily process it. Enter JSONScript! (or to give it it's proper name: Clojure).
+
+I'll tell the story about how I used to complain about JSON but changed my mind. I'll explain about JSON Schema, what it is and what it can do (with a demonstration of my new JSON Schema validator/processor, jinx).
+
+I'll also demo jinx's role in a brand new web library that I'm building on Metosin's reitit: Apex. Apex turns OpenAPI documents into running web endpoints with reitit, with full OpenAPI and HTTP compliance."
+
+Level: Newbies
+
+Speaker: Malcolm Sparks
+
+Bio: Malcolm Sparks is the Technical Director of JUXT, a Clojure engineering firm in the UK. Malcolm's open-source work includes libraries such as bidi, yada and tick.
+
+
+* Logo
+
+body {
+    background-image: url(../img/image.svg);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: 3% 96%;
+}
