@@ -2,9 +2,65 @@
 :classification: PUBLIC
 Malcolm Sparks <mal@juxt.pro>
 
+== RJSF
+
+++++
+<iframe id="inlineFrameExample"
+    title="Inline Frame Example"
+    style="width: calc(120vw / 1.35514); max-width: none; margin-left: calc(((-120vw / 1.35514) + 960px) / 2); height: 1200px; margin-top: -400px; transform: scale(0.75);"
+    src="rjsf-team.github.io_react-jsonschema-form_.html">
+</iframe>
+++++
+
 == Why I now love JSON
 
-=== Literal data
+=== Data literals
+
+[source,clojure]
+----
+;; Copyright © 2019, JUXT LTD.
+
+(ns juxt.jinx-alpha
+  (:require
+   [juxt.jinx-alpha.schema :as schema]
+   [juxt.jinx-alpha.validate :as validate]
+   [juxt.jinx-alpha.clj-transform :as transform]))
+
+(defn schema
+  "Build a JSON Schema from a map (or boolean). Must conform to
+  rules. Returns a map that can be used in validation."
+  ([s] (schema/schema s))
+  ([s options] (schema/schema s options)))
+
+(defn validate
+  "Validate a map (or boolean) according to the given schema."
+  ([instance schema] (validate/validate instance schema))
+  ([instance schema options] (validate/validate instance schema options)))
+
+(defn ^:jinx/experimental clj->jsch
+  [clj]
+  "Transform a Clojure syntax shorthand into JSON Schema and build it."
+  (schema/schema (transform/clj->jsch clj)))
+
+(defn validate
+  "Validate a map (or boolean) according to the given schema."
+  ([instance schema] (validate/validate instance schema))
+  ([instance schema options] (validate/validate instance schema options)))
+
+(defn ^:jinx/experimental clj->jsch
+  [clj]
+  "Transform a Clojure syntax shorthand into JSON Schema and build it."
+  (schema/schema (transform/clj->jsch clj)))(defn validate
+  "Validate a map (or boolean) according to the given schema."
+  ([instance schema] (validate/validate instance schema))
+  ([instance schema options] (validate/validate instance schema options)))
+
+(defn ^:jinx/experimental clj->jsch
+  [clj]
+  "Transform a Clojure syntax shorthand into JSON Schema and build it."
+  (schema/schema (transform/clj->jsch clj)))
+
+----
 
 === Ubiquitous
 
@@ -27,6 +83,10 @@ Actually things aren't that bad
 --
 Intro to yada (see Slack message in #yada re. article)
 --
+
+== openid-connect
+
+image::oauth-maze.png[]
 
 === yada upsides
 
@@ -77,3 +137,8 @@ NOTE: We want Clojure to be productive - it's already got a lot of productivity 
 * Ring middleware for OpenID-Connect Discovery  - pretty much done.
  ** Random state with good entropy
  ** JDK Crypto via Nimbus - verification of all JWT sigs - JWKS built in
+
+
+* Refs
+
+https://aaronparecki.com/2019/12/12/21/its-time-for-oauth-2-dot-1

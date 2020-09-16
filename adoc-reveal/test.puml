@@ -1,0 +1,60 @@
+@startuml
+frame "AWS" {
+
+  node "ASG-1" {
+      [Application Server]
+  }
+
+  node "ASG-2" {
+      [Backoffice]
+  }
+
+  database "Dynamo" {
+      [Customer Details]
+      [Account (Wallet)]
+      [Gambling Transaction Record]
+  }
+
+  database "Redis" {
+      [Betting Events & Markets]
+      }
+
+  node "CloudWatch" {
+    [Events Logs\n& Monitoring]
+  }
+
+}
+
+[Application Server] --> [Events Logs\n& Monitoring]
+
+Actor Admin
+
+Admin -> [Backoffice]: https
+
+Actor Pro
+Actor Punter
+
+Pro -> [Application Server]: https
+Punter -> [Application Server]: https
+
+[Web browser] --> [Application Server]: https
+[Payments\n(Kalixa)] <--> [Application Server]: https
+[Market Data & Event Feed\n(Bet Genius)] --> [Application Server]: https
+[KYC (GBG)] <--> [Application Server]: https
+[Address lookup\n(Loqate)] --> [Application Server]: https
+[Email\n(SendGrid)] <-- [Application Server]: https
+[Notification\n(WhatsApp)] <-- [Application Server]: https
+[Analytics\n(Segment)] <-- [Application Server]: https
+
+[Application Server] <-- [Betting Events & Markets]
+
+[Application Server] <--> [Customer Details]
+[Application Server] <--> [Account (Wallet)]
+[Application Server] <--> [Gambling Transaction Record]
+
+[Backoffice] <--> [Customer Details]
+[Backoffice] <--> [Account (Wallet)]
+[Backoffice] <--> [Gambling Transaction Record]
+
+
+@enduml

@@ -10,6 +10,7 @@ var params = {
 	root: outputDir,
 	open: true,
 	wait: 1000,
+	port: 8040,
 	mount: [['/reveal.js', path.join(require.resolve('reveal.js'), '../../')]],
 };
 

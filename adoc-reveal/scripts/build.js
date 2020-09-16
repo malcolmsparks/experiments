@@ -13,8 +13,9 @@ function buildOne(file, outputDir) {
 		    'revealjs_progress': "false",
 		    'revealjs_customtheme': "/juxt.css",
 		    'revealjs_transition': "none",
-		    'revealjs_controls': "false"
-
+		    'revealjs_controls': "false",
+		    'source-highlighter': "highlightjs",
+		    'highlightjs-theme': "github.css"
 		    };
   var options = {safe: 'safe',
                  backend: 'revealjs',

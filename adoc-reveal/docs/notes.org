@@ -27,3 +27,7 @@ body {
     background-repeat: no-repeat;
     background-position: 3% 96%;
 }
+
+* References
+
+https://aaronparecki.com/2019/12/12/21/its-time-for-oauth-2-dot-1
